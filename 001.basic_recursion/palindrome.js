@@ -6,11 +6,17 @@ const palindrome = (str) => {
     return palindrome(str.substring(1, str.length - 1));
 }
 
+const palindrome_better = (i, str) => {
+  if(i>=str.length/2) return true
+  if(str[i] != str[str.length - i - 1]) return false
+  return palindrome_better(i+1, str)
+}
+
 
 words = ["racecar", "level", "hello", "bike", "mom"]
 for(word of words){
   console.log(word)
-  console.log(palindrome(word))
+  console.log(palindrome_better(0, word))
   console.log("-----")
 }
 
